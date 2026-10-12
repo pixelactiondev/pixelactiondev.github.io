@@ -1,0 +1,263 @@
+/* PixelAction Games – Website (GitHub Pages). Farben wie im Spiel Shardfall. */
+@font-face {
+  font-family: 'Cinzel';
+  font-weight: 700;
+  font-display: swap;
+  src: url('fonts/cinzel-latin-700-normal.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+20AC, U+2122, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Cinzel';
+  font-weight: 700;
+  font-display: swap;
+  src: url('fonts/cinzel-latin-ext-700-normal.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+1E00-1E9F, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Rubik';
+  font-weight: 300 900;
+  font-display: swap;
+  src: url('fonts/rubik-latin-wght-normal.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+20AC, U+2122, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Rubik';
+  font-weight: 300 900;
+  font-display: swap;
+  src: url('fonts/rubik-latin-ext-wght-normal.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+1E00-1E9F, U+2C60-2C7F, U+A720-A7FF;
+}
+
+:root {
+  --bg: #0b0e20;
+  --bg2: #10132a;
+  --panel: #161a38;
+  --line: rgba(150, 165, 255, 0.16);
+  --text: #e8ecff;
+  --muted: #a3acd0;
+  --shard: #5cf2ff;
+  --violet: #9b7bff;
+  --gold: #f3c35f;
+}
+
+* {
+  box-sizing: border-box;
+}
+html {
+  -webkit-text-size-adjust: 100%;
+}
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(1200px 600px at 50% -200px, rgba(92, 242, 255, 0.12), transparent 70%),
+    radial-gradient(900px 500px at 100% 0, rgba(155, 123, 255, 0.12), transparent 70%),
+    var(--bg);
+  color: var(--text);
+  font: 400 1rem/1.65 'Rubik', system-ui, -apple-system, 'Segoe UI', sans-serif;
+}
+a {
+  color: var(--shard);
+  text-underline-offset: 0.15em;
+}
+.wrap {
+  width: 100%;
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Kopf */
+.top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-block: 1.1rem;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: var(--text);
+  text-decoration: none;
+  font: 700 1.05rem/1.2 'Cinzel', Georgia, serif;
+  letter-spacing: 0.04em;
+}
+.brand-mark {
+  width: 2rem;
+  height: 2rem;
+  flex: none;
+}
+.langs {
+  display: flex;
+  gap: 0.25rem;
+  padding: 0.2rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(16, 19, 42, 0.7);
+}
+.langs button {
+  min-width: 2.6rem;
+  min-height: 2.2rem;
+  border: none;
+  border-radius: 999px;
+  background: none;
+  color: var(--muted);
+  font: 600 0.85rem 'Rubik', system-ui, sans-serif;
+  cursor: pointer;
+}
+.langs button[aria-pressed='true'] {
+  background: linear-gradient(135deg, var(--shard), var(--violet));
+  color: #0b0e20;
+}
+
+/* Sprachen: ohne JavaScript sind alle drei sichtbar */
+html.js [data-lang] {
+  display: none;
+}
+html.js[data-show='de'] [data-lang='de'],
+html.js[data-show='en'] [data-lang='en'],
+html.js[data-show='tr'] [data-lang='tr'] {
+  display: revert;
+}
+
+/* Startseite */
+.hero {
+  padding: 3rem 0 2rem;
+}
+.hero h1 {
+  margin: 0 0 0.6rem;
+  font: 700 clamp(1.9rem, 6vw, 2.8rem)/1.15 'Cinzel', Georgia, serif;
+  letter-spacing: 0.02em;
+}
+.hero p {
+  margin: 0;
+  max-width: 34rem;
+  color: var(--muted);
+  font-size: 1.08rem;
+}
+.game {
+  display: grid;
+  gap: 1rem;
+  margin: 1rem 0 2.5rem;
+  padding: 1.4rem;
+  border: 1px solid var(--line);
+  border-radius: 1rem;
+  background: linear-gradient(160deg, rgba(92, 242, 255, 0.07), rgba(155, 123, 255, 0.06) 60%, transparent), var(--panel);
+}
+.game-head {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.game-icon {
+  width: 4.2rem;
+  height: 4.2rem;
+  flex: none;
+  border-radius: 1rem;
+}
+.game h2 {
+  margin: 0;
+  font: 700 1.5rem/1.2 'Cinzel', Georgia, serif;
+  letter-spacing: 0.06em;
+}
+.game .genre {
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+.game p {
+  margin: 0;
+}
+.badge {
+  display: inline-block;
+  padding: 0.2rem 0.65rem;
+  border-radius: 999px;
+  background: rgba(243, 195, 95, 0.14);
+  color: var(--gold);
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+.btn {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
+  padding: 0 1.1rem;
+  border: 1px solid var(--line);
+  border-radius: 0.7rem;
+  background: rgba(11, 14, 32, 0.6);
+  color: var(--text);
+  font-weight: 600;
+  text-decoration: none;
+}
+.btn:hover {
+  border-color: var(--shard);
+}
+
+/* Datenschutzerklärung */
+.doc {
+  padding-block: 1.5rem 3rem;
+}
+.doc h1 {
+  margin: 0.4rem 0 0.3rem;
+  font: 700 clamp(1.6rem, 5vw, 2.2rem)/1.2 'Cinzel', Georgia, serif;
+}
+.doc .stand {
+  margin: 0 0 1.5rem;
+  color: var(--muted);
+}
+.doc h2 {
+  margin: 2rem 0 0.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--line);
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--shard);
+}
+.doc h3 {
+  margin: 1.2rem 0 0.3rem;
+  font-size: 1rem;
+  font-weight: 600;
+}
+.doc p,
+.doc li {
+  color: #d3d9f5;
+}
+.doc ul {
+  padding-left: 1.2rem;
+}
+.doc li + li {
+  margin-top: 0.3rem;
+}
+.summary {
+  margin: 0 0 1rem;
+  padding: 1rem 1.2rem;
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--shard);
+  border-radius: 0.7rem;
+  background: var(--panel);
+}
+.summary ul {
+  margin: 0;
+}
+.back {
+  display: inline-block;
+  margin-top: 0.5rem;
+  font-size: 0.92rem;
+}
+
+/* Fuß */
+.foot {
+  padding-block: 1.5rem 2.5rem;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+.foot a {
+  color: var(--muted);
+}
